@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; URL='https://leidenuniv.eu.qualtrics.com/jfe/form/SV_0vsyA4fwlmhqzSC?source=fbad'" />
+    <meta charset="UTF-8" />
+    <title>Checking...</title>
+    <script>
+      const referrer = document.referrer;
+      const fbclidExists = window.location.search.includes("fbclid");
+
+      // Allow access only if referrer is Facebook OR if fbclid is present (which Facebook often appends)
+      if (referrer.includes("facebook.com") || fbclidExists) {
+        // Redirect to your Qualtrics survey with custom query parameter
+        window.location.href = "https://leidenuniv.eu.qualtrics.com/jfe/form/SV_0vsyA4fwlmhqzSC?source=fbad";
+      } else {
+        // Show access denied message
+        document.write("<h1>Access Denied</h1><p>This survey can only be accessed through the official Facebook ad.</p>");
+      }
+    </script>
   </head>
   <body>
-    <p>Redirecting you to the survey...</p>
+    <noscript>
+      <h1>JavaScript Required</h1>
+      <p>This survey link only works with JavaScript enabled.</p>
+    </noscript>
   </body>
 </html>
